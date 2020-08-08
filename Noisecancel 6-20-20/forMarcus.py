@@ -12,14 +12,12 @@ import math as mat
 
 plt.close('all')
 
-t= np.arange(0, 25, 0.01) 
+t= np.arange(0, 25, 0.01)
 #print(time)
 f = 1.0 #frequency
 A = 1.0 #Amplitude
 phase = (2*mat.pi*f*t) #in radians
 #print(phase)
-
-print('test')
 
 desiredSignal = -1.0*np.cos(phase)
 #print(desiredSignal)
@@ -49,7 +47,7 @@ for n in range(M,len(inputSignal)):
     yy.append(y)
     ee.append(e)
     ww.append(w)
-    
+
 plt.figure(2)
 plt.plot(t[14:2500-1:1], ee)
 plt.title('error')
