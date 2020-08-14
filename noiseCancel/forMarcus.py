@@ -12,7 +12,7 @@ import math as mat
 
 plt.close('all')
 
-t= np.arange(0, 25, 0.01) 
+t= np.arange(0, 25, 0.01)
 #print(time)
 f = 1.0 #frequency
 A = 1.0 #Amplitude
@@ -31,25 +31,25 @@ plt.xlabel('Time(sec)')
 plt.show()
 inputSignal = - desiredSignal
 
-M =15  #filter length ???
+M =15  #why are there 15  things to consider for noise cancellation?
 f = pa.filters.FilterLMS(M, mu=0.1)
 yy =[]
 ee =[]
 ww =[]
 w = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-mu = .1
+mu = .1 #how did you choose learning rate?
 #LMS algorithm
 for n in range(M,len(inputSignal)):
     d = desiredSignal[n]
-    x = inputSignal[n:n-M+0:-1]
-    y = np.dot(w,x)
+    x = inputSignal[n:n-M+0:-1] # inputs from 15-0, and shifts by one data point each trial (filter must get data from highest to lowest index)
+    y = np.dot(w,x) #multipies w by x
     e = d - y
     w = w + mu * e * x
     #y,e,w = f.adapt(d, x)
     yy.append(y)
     ee.append(e)
     ww.append(w)
-    
+
 plt.figure(2)
 plt.plot(t[14:2500-1:1], ee)
 plt.title('error')
