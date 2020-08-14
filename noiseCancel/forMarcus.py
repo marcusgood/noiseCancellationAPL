@@ -31,13 +31,13 @@ plt.xlabel('Time(sec)')
 plt.show()
 inputSignal = - desiredSignal
 
-M =15  #why are there 15  things to consider for noise cancellation?
+M =15  #random number, likely 4 irl
 f = pa.filters.FilterLMS(M, mu=0.1)
 yy =[]
 ee =[]
 ww =[]
 w = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-mu = .1 #how did you choose learning rate?
+mu = .1 #random rate, likely close to this tho
 #LMS algorithm
 for n in range(M,len(inputSignal)):
     d = desiredSignal[n]
