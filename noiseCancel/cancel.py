@@ -5,7 +5,7 @@ import math as mat
 
 time = np.arange(0, 25.0, 0.01);
 
-f = 1.0
+f = 1.0  #certain changes of these lead to instability, due to lack of trials?
 a = 1.0
 
 inputSignal = a * np.sin(2 * np.pi * f * time)  #Test ideal sound wave
