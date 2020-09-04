@@ -1,18 +1,14 @@
 import numpy as np
 import matplotlib.pylab as plt
-import padasip as pa
 import math as mat
 
 
 time = np.arange(0, 25.0, 0.01);
 
 f = 1.0
-a = 2.0
+a = 1.0
 
-phase = (2 * np.pi * f * time)
-
-inputSignal = a * np.sin(phase)  #Test ideal sound wave
-
+inputSignal = a * np.sin(2 * np.pi * f * time)  #Test ideal sound wave
 
 plt.figure(1)
 plt.plot(time, inputSignal)
@@ -29,16 +25,16 @@ plt.xlabel('Time(sec)')
 plt.show()
 
 deltas = 4 #number of variables in sound wave that need to be adapted to (Amplitude, phase, up/down, frequency)
-mu = 0.99 #learning rate
+mu = 0.013 #learning rate
 w = np.array([0,0,0,0])
 
 error = []
 output = []
 weightValues = []
 
-for n in range(deltas, len(inputSignal)):
-    d = desiredSignal[n]
-    x = inputSignal[n:n-deltas+0:-1] # inputs from 4-0, and shifts by one data point each trial (filter must get data from highest to lowest index)
+for trials in range(deltas, len(inputSignal)):
+    d = desiredSignal[trials]
+    x = inputSignal[trials:trials-deltas+0:-1] # inputs from 4-0, and shifts by one data point each trial (filter must get data from highest to lowest index)
     y = np.dot(w,x) #multipies w by x
     e = d - y
     w = w + mu * e * x
