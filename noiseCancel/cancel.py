@@ -29,7 +29,7 @@ plt.xlabel('Time(sec)')
 plt.show()
 
 deltas = 4 #number of variables in sound wave that need to be adapted to (Amplitude, phase, up/down, frequency)
-mu = 0.013 #learning rate
+mu = 0.99 #learning rate
 w = np.array([0,0,0,0])
 
 error = []
@@ -38,8 +38,7 @@ weightValues = []
 
 for n in range(deltas, len(inputSignal)):
     d = desiredSignal[n]
-    x = inputSignal[n:n-deltas+0:-1]
-    print(x) # inputs from 4-0, and shifts by one data point each trial (filter must get data from highest to lowest index)
+    x = inputSignal[n:n-deltas+0:-1] # inputs from 4-0, and shifts by one data point each trial (filter must get data from highest to lowest index)
     y = np.dot(w,x) #multipies w by x
     e = d - y
     w = w + mu * e * x
