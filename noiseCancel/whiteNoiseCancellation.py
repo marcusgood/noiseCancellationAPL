@@ -5,24 +5,29 @@ import math as mat
 
 time = np.arange(0, 25.0, 0.1);
 
-inputSignal = np.random.normal(0, 1, 250)  #Test ideal sound wave
+inputSignal = np.random.normal(0, 1, 250)  #Test white noise
+desiredSignal = -inputSignal #Goal to be generated
+
 
 plt.figure(1)
+
+plt.subplot(2,1,1)
 plt.plot(time, inputSignal)
 plt.title('Input Signal')
 plt.xlabel('Time(sec)')
-plt.show()
+plt.ylabel('Input Signal Value')
 
-desiredSignal = -inputSignal #Goal to be generated
-
-plt.figure(2)
+plt.subplot(2,1,2)
 plt.plot(time, desiredSignal)
 plt.title('Desired Signal')
 plt.xlabel('Time(sec)')
+plt.ylabel('Desired Signal Value')
+
+plt.tight_layout()
 plt.show()
 
-deltas = 4 #number of variables in sound wave that need to be adapted to (Amplitude, phase, up/down, frequency)
-mu = 0.013 #learning rate
+deltas = 4 #number of variables in sound wave that need to be adapted
+mu = 0.013
 w = np.array([0,0,0,0])
 
 error = []
@@ -40,13 +45,25 @@ for trials in range(deltas, len(inputSignal)):
     error.append(e)
     weightValues.append(w)
 
-plt.figure(3)
+plt.figure(2)
+
+plt.subplot(2,1,1)
 plt.plot(time[3:250-1:1], error)
 plt.title('Error over Time')
 plt.xlabel('Time(sec)')
+plt.ylabel('Error Value')
+
+plt.subplot(2,1,2)
+plt.plot(time[3:250-1:1], weightValues)
+plt.title('Weight Values over Time')
+plt.xlabel('Time(sec)')
+plt.ylabel('Weight Values')
+
+plt.tight_layout()
 plt.show()
 
-plt.figure(4)
+plt.figure(3)
+
 plt.subplot(2,1,1)
 plt.plot(time, desiredSignal, 'r')
 plt.title('Desired Signal over Time')
@@ -58,11 +75,7 @@ plt.plot(time[3:250-1:1], output, 'b')
 plt.title('Output Over Time')
 plt.xlabel('Time')
 plt.ylabel('Output of Algorithm')
-plt.tight_layout()
-plt.show()
 
-plt.figure(5)
-plt.plot(time[3:250-1:1], weightValues)
-plt.title('Weight Values over Time')
-plt.xlabel('Time(sec)')
+
+plt.tight_layout()
 plt.show()
