@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pylab as plt
-import math as mat
 
 
 time = np.arange(0, 25.0, 0.01);
