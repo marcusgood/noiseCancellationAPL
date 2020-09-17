@@ -21,6 +21,4 @@ https://www.amazon.com/Yohii-Electret-Condenser-Stereo-Microphone/dp/B07S1MG846/
 
 
 
-
-
 -College/Portfolio Stuff (Photo of robot, computer speakers.)
