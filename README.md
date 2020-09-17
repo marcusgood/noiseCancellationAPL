@@ -20,5 +20,8 @@ https://www.amazon.com/Yohii-Electret-Condenser-Stereo-Microphone/dp/B07S1MG846/
 
 https://www.adafruit.com/product/1713
 
-
 -College/Portfolio Stuff (Photo of robot, computer speakers.)
+
+-Combine white noise and voice signal, cancel white noise and output only voice signal,
+
+-Then hardware?
