@@ -1,10 +1,5 @@
-import pyaudio as pa
+import PyAudio as pa
 import numpy as np
-
-#Use pyaudio, and third party package to access microphone thru MacOS
-#Record audio file?, then plot sound using matplotlib?
-#Go from there a sort out which is white noise and which is noise from data?
-
 import wave
 
 chunk = 1024  # Record in chunks of 1024 samples
@@ -46,3 +41,8 @@ wf.setsampwidth(p.get_sample_size(sample_format))
 wf.setframerate(fs)
 wf.writeframes(b''.join(frames))
 wf.close()
+
+
+#Use pyaudio, and third party package to access microphone thru MacOS
+#Record audio file?, then plot sound using matplotlib?
+#Go from there a sort out which is white noise and which is noise from data?
