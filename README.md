@@ -1,5 +1,5 @@
 # noiseCancellationAPL
-APL Project Summer 2020
+APL Project Summer/Academic 2020
 
 By: Marcus Good
 
