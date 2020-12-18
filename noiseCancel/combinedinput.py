@@ -41,20 +41,23 @@ for trials in range(deltas, len(inputSignal)):
     weightValues.append(w)
 
 
-plt.figure(3)
-plt.plot(time[3:2500-1:1], error)
-plt.title('Error over Time')
-plt.xlabel('Time(sec)')
-plt.show()
 
-plt.figure(4)
-plt.plot(time[3:2500-1:1], output)
+plt.figure(3)
+plt.plot(time[4:2500-1:1], output)
 plt.title('Output over Time')
 plt.xlabel('Time(sec)')
 plt.show()
 
+plt.figure(4)
+plt.plot(time[4:2500-1:1], error)
+plt.title('Error over Time')
+plt.xlabel('Time(sec)')
+plt.show()
+
+
+
 plt.figure(5)
-plt.plot(time[3:2500-1:1], weightValues)
+plt.plot(time[4:2500-1:1], weightValues)
 plt.title('Weight Values over Time')
 plt.xlabel('Time(sec)')
 plt.show()
