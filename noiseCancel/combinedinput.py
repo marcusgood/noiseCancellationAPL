@@ -12,11 +12,18 @@ whiteNoise = np.random.normal(0, 1, 250)
 
 combinedNoise =  inputSignal + whiteNoise
 
-desiredSignal = -(combinedNoise)
+desiredSignal = inputSignal
 
 plt.figure(1)
 plt.plot(time, combinedNoise)
-plt.title('Sound vs Time')
+plt.title('Combined Noise')
+plt.xlabel('Time')
+plt.ylabel('Sound Input')
+plt.show()
+
+plt.figure(2)
+plt.plot(time, desiredSignal)
+plt.title('Desired Output (Only Sin Wave Wanted)')
 plt.xlabel('Time')
 plt.ylabel('Sound Input')
 plt.show()
@@ -45,13 +52,13 @@ for trials in range(deltas, len(inputSignal)):
 plt.figure(3)
 plt.plot(time[4:2500-1:1], output)
 plt.title('Output over Time')
-plt.xlabel('Time(sec)')
+plt.xlabel('Time')
 plt.show()
 
 plt.figure(4)
 plt.plot(time[4:2500-1:1], error)
 plt.title('Error over Time')
-plt.xlabel('Time(sec)')
+plt.xlabel('Time')
 plt.show()
 
 
@@ -59,5 +66,5 @@ plt.show()
 plt.figure(5)
 plt.plot(time[4:2500-1:1], weightValues)
 plt.title('Weight Values over Time')
-plt.xlabel('Time(sec)')
+plt.xlabel('Time')
 plt.show()
