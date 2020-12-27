@@ -12,13 +12,20 @@ whiteNoise = np.random.normal(0, 1, 250)
 
 combinedNoise =  inputSignal + whiteNoise
 
-desiredSignal = inputSignal
+desiredSignal = -whiteNoise
 
-plt.figure(1)
+plt.figure(0)
 plt.plot(time, combinedNoise)
 plt.title('Combined Noise')
 plt.xlabel('Time')
 plt.ylabel('Sound Input')
+plt.show()
+
+plt.figure(1)
+plt.plot(time, whiteNoise)
+plt.title('Generated White Noise')
+plt.xlabel('Time')
+plt.ylabel('White Noise')
 plt.show()
 
 plt.figure(2)
